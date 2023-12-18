@@ -89,7 +89,7 @@ class PaymentController extends Controller
             OrderCompleteJob::dispatch($orderCompleteDTO);
 
             return redirect()
-                ->route('orders.show', ['orderId' => $order->id])
+                ->route('orders.show', ['orderId' => $order->transaction_id])
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
